@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './App.module.css';
 
-import { Cards, Chart, StatePicker } from './components/index';
+import { Cards, StatePicker } from './components/index';
 import { fetchData, fetchStates } from './api';
+import coronaimage from './images/image.png';
 
 class App extends React.Component {
   state = {
@@ -21,13 +22,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { data, state } = this.state;
+    const { data } = this.state;
 
     return (
       <div className={styles.container}>
-        <Cards data={data} />
+        <img className='{styles.image}' src={coronaimage} alt='Corona symbol' />
         <StatePicker handleStateChange={this.handleStateChange} />
-        <Chart data={data} state={state} />
+        <Cards data={data} />
       </div>
     );
   }
